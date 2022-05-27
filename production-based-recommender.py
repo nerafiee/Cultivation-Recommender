@@ -4,11 +4,10 @@ import pandas as pd
 st.title("A Productivity-based recommender")
 st.write(
     """
-    ### Productivity-based recommender
+    Productivity-based recommender
     """
 )
 
-products = pd.read_csv('products.csv')
 
 ### popularity based recommender
 def popularity_based_recommender(products: pd.DataFrame, country: str, number: int):
@@ -31,7 +30,8 @@ country = (
     .sidebar
     .number_input(label = "In which country do you want to cultivate a crop?", min_value = 0, max_value = 200)
     )
-
+    
+products = pd.read_csv('products_new.csv')
 dense_matrix = products.copy()
 recoms = popularity_based_recommender(dense_matrix.copy(), country, 10)
 st.dataframe(recoms)

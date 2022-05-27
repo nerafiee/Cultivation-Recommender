@@ -8,9 +8,6 @@ st.write(
     """
 )
 
-products = pd.read_csv('products_new.csv')
-country = st.sidebar.selectbox('In which country do you want to cultivate a crop?', products['Area'].unique())
-
 ### popularity based recommender
 def popularity_based_recommender(products: pd.DataFrame, country: str, number: int):
     
@@ -27,7 +24,9 @@ def popularity_based_recommender(products: pd.DataFrame, country: str, number: i
         .filter('Item')
         .head(number)
         )
-   
+
+products = pd.read_csv('products_new.csv')
+country = st.sidebar.selectbox('In which country do you want to cultivate a crop?', products['Area'].unique())
 dense_matrix = products.copy()
 recoms = popularity_based_recommender(dense_matrix, country, 10)
 st.dataframe(recoms)

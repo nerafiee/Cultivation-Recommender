@@ -31,7 +31,7 @@ country = (
     )
     
 dense_matrix = products.copy()
-recoms = popularity_based_recommender(dense_matrix.copy(), country, 10)
+recoms = popularity_based_recommender(dense_matrix, country, 10)
 st.dataframe(recoms)
 
 # st.write(

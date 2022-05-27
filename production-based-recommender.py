@@ -16,7 +16,7 @@ def popularity_based_recommender(products: pd.DataFrame, country: str, number: i
         products
         .query('Element == "Production"')
         .query('Unit == "tonnes"')
-        .query('Area == "country"')
+        .query('Area.str.contains(@country)', engine='python')
         .query('Year >= 2015')
         .groupby('Item')
         .agg(mean_value = ('Value','mean'))

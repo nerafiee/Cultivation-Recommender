@@ -22,6 +22,7 @@ def popularity_based_recommender(products: pd.DataFrame, country: str, number: i
         .agg(mean_value = ('Value','mean'))
         .reset_index()
         .sort_values('mean_value', ascending=False)
+        .filter('Item')
         .head(number)
         )
 

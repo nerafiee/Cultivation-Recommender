@@ -4,7 +4,7 @@ import pandas as pd
 st.title("A Productivity-based recommender")
 st.write(
     """
-    These are the best crops to grow in @country
+    These are the best crops to grow there:
     """
 )
 

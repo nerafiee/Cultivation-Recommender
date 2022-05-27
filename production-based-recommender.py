@@ -25,12 +25,12 @@ def popularity_based_recommender(products: pd.DataFrame, country: str, number: i
         .head(number)
         )
 
+products = pd.read_csv('products_new.csv')
 country = (
     st
-    .text_input(label = "In which country do you want to cultivate a crop?")
+    .select_box('In which country do you want to cultivate a crop?', products['Area'])
     )
     
-products = pd.read_csv('products_new.csv')
 dense_matrix = products.copy()
 recoms = popularity_based_recommender(dense_matrix.copy(), country, 10)
 st.dataframe(recoms)

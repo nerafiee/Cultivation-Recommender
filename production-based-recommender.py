@@ -27,7 +27,7 @@ def popularity_based_recommender(products: pd.DataFrame, country: str, number: i
 
 country = (
     st
-    .text_input(label = "In which country do you want to cultivate a crop?", min_value = 0, max_value = 200)
+    .text_input(label = "In which country do you want to cultivate a crop?")
     )
     
 products = pd.read_csv('products_new.csv')
